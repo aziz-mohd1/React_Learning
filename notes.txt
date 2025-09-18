@@ -1,0 +1,99 @@
+React
+
+==================================================================================================================================================================
+
+props
+**************
+
+ProductTab.jsx
+--------------
+
+import Product from "./Product.jsx";
+
+let ProductTab = () => {
+  return (
+    <>
+      <Product title="pen" description="Ball pen for good hand-writing" price={100} features = {["hi-tech", "durable"]}/>
+      <Product title="laptop" description="Budget friendly laptop" price={1000} features = {["hi-tech", "durable"]}/>
+      <Product title="mobile" description="Iphone 21 PRO X MAX" price={100000} features = {["hi-tech", "durable"]}/>
+    </>
+  );
+};
+
+
+product.jsx
+-----------
+
+export default ProductTab;
+
+import "./Product.css";
+
+let Product = ({title, description, price, features}) =>{
+    // console.log(props.title);
+    // let title = props.title;
+    return(
+        <div className="Product">
+            <h3>{title}</h3>
+            <h3>{description}</h3>
+            <h3>Rs.{price}/-</h3>
+            <h3>{features}</h3>
+        </div>
+    );
+};
+
+export default Product;
+
+==================================================================================================================================================================
+
+but arrays are getting printed on the UI as : hi-techdurable  --> no space, no comma
+
+==================================================================================================================================================================
+
+Now rendering arrays -- Using map()
+
+product.jsx
+-----------
+import "./Product.css";
+
+let Product = ({title, description, price, features}) =>{
+
+    const list = features.map((ele)=><li>{ele}</li>);
+    return(
+        <div className="Product">
+            <h3>{title}</h3>
+            <h3>{description}</h3>
+            <h3>Rs.{price}/-</h3>
+            <h3>{list}</h3>
+        </div>
+    );
+};
+
+export default Product;
+
+==================================================================================================================================================================
+
+Dynamic styling
+-----------------
+
+import "./Product.css";
+
+let Product = ({title, description, price, features}) =>{
+    // console.log(props.title);
+    // let title = props.title;
+    // const list = features.map((ele)=><li>{ele}</li>);
+
+    ***********************************************************// dynamic styling according to discounts
+    let isDiscount = price>30000;
+    let styles = {backgroundColor: isDiscount ? "green" : "blue"};
+    return(
+        <div className="Product" style={styles}>
+            <h3>{title}</h3>
+            <h3>{description}</h3>
+            <h3>Rs.{price}/-</h3>
+            <h3>{ isDiscount ? <p>Discount of 5%</p> : null }</h3>
+            {/* <h3>{list}</h3> */}
+        </div>
+    );
+};
+
+export default Product;
