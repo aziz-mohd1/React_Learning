@@ -1,7 +1,25 @@
-/* .Product{
+.product{
+    width: 320px;
+    height: 200px;
     box-sizing: border-box;
-    padding: 5px 20px;
     border: 1px solid white;
     margin: 10px;
-    border-radius: 7%;
-} */
+    border-radius: 10px;
+    list-style: none;
+}
+
+.strike{
+    text-decoration: line-through;
+}
+
+.productTitle{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+.priceTag{
+    background: #ffd700;
+    margin: 0;
+    padding: 13.6px;
+    border-radius: 0 0 10px 10px; 
+}
